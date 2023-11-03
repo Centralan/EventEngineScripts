@@ -1,1 +1,28 @@
 /runsafe debug EventEngine finer
+
+
+function spawn_mine(data)
+        if current == maxData then
+                EventEngine.debug.fine("init current to 1");
+                current = 1;
+        else
+                current = current + 1;
+                EventEngine.debug.fine("increased current");
+        end
+        EventEngine.debug.fine("setting to air");
+        spawn_setAir8();
+end
+
+function spawn_setAir8()
+        EventEngine.debug.fine("setting to air");
+        for index, key in ipairs(blocks) do
+                key:setBlock(0, current);
+        end
+end
+
+function spawn_setstone()
+        EventEngine.debug.fine("setting to stone");
+        for index, key in ipairs(blocks) do
+                key:setBlock(35, current);
+        end
+end
